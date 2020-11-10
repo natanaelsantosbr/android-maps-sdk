@@ -41,10 +41,28 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         //Mudar a exibicao do mapa
-        mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
         //Adicionar Latitude e Longitude
         LatLng meuEndereco = new LatLng(-15.8668565, -48.0644553);
+
+
+        //Adicionar evento de cliques
+        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(LatLng latLng) {
+                mMap.addMarker(
+                        new MarkerOptions()
+                                .position(latLng)
+                                .title("Meu Endereço")
+                                .title("local")
+                                .snippet("Descricao")
+                        .icon( (
+                        BitmapDescriptorFactory.fromResource(R.drawable.icone_loja)
+                        )));
+            }
+        });
+
 
         mMap.addMarker(
                 new MarkerOptions()
