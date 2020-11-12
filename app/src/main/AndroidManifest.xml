@@ -7,7 +7,13 @@
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the 'MyLocation' functionality.
     -->
+
+    <!-- Mais Precisa -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+
+    <!-- Aproximada -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -16,6 +22,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -30,9 +37,8 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".PoligonoActivity"
-            android:label="@string/title_activity_poligono">
-
+            android:name=".activity.LocalizacaoDoUsuarioActivity"
+            android:label="@string/title_activity_localizacao_do_usuario">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -40,13 +46,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CirculosActivity2"
-            android:label="Circulos">
+
+            android:name=".activity.PoligonoActivity"
+            android:label="@string/title_activity_poligono">
+
         </activity>
         <activity
-            android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
-        <activity android:name=".MainActivity" />
+            android:name=".activity.CirculosActivity2"
+            android:label="Circulos"></activity>
+        <activity
+            android:name=".activity.MapsActivity"
+            android:label="@string/title_activity_maps" />
+        <activity android:name=".activity.MainActivity" />
     </application>
 
 </manifest>

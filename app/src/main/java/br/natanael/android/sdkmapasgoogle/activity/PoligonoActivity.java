@@ -1,7 +1,8 @@
-package br.natanael.android.sdkmapasgoogle;
+package br.natanael.android.sdkmapasgoogle.activity;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.Manifest;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -14,14 +15,25 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolygonOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 
+import br.natanael.android.sdkmapasgoogle.R;
+import br.natanael.android.sdkmapasgoogle.helper.Permissoes;
+
 public class PoligonoActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+
+    private String[] permissoes = new String[]{
+            Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_poligono);
+
+        Permissoes.validarPermissoes(permissoes, this, 1);
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -57,14 +69,14 @@ public class PoligonoActivity extends FragmentActivity implements OnMapReadyCall
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
             @Override
             public void onMapClick(LatLng latLng) {
-                LatLng a = new LatLng(-15.8668565, -48.0644553);
                 PolylineOptions polylineOptions = new PolylineOptions();
-                polylineOptions.add(a);
+                polylineOptions.add(meuEndereco);
                 polylineOptions.add(latLng);
                 polylineOptions.color(Color.BLUE);
                 polylineOptions.width(20);
 
                 mMap.addPolyline(polylineOptions);
+
 
             }
         });
@@ -77,4 +89,5 @@ public class PoligonoActivity extends FragmentActivity implements OnMapReadyCall
         //Mover a camera
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(meuEndereco, 15));
     }
+
 }

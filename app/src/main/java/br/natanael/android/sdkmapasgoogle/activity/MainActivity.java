@@ -1,8 +1,10 @@
-package br.natanael.android.sdkmapasgoogle;
+package br.natanael.android.sdkmapasgoogle.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import br.natanael.android.sdkmapasgoogle.R;
 
 public class MainActivity extends AppCompatActivity {
 

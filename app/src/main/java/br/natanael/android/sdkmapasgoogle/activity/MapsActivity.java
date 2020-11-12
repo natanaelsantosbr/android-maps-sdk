@@ -1,4 +1,4 @@
-package br.natanael.android.sdkmapasgoogle;
+package br.natanael.android.sdkmapasgoogle.activity;
 
 import androidx.fragment.app.FragmentActivity;
 
@@ -11,6 +11,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import br.natanael.android.sdkmapasgoogle.R;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
