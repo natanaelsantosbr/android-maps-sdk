@@ -8,6 +8,8 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -22,6 +24,10 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
 
 import br.natanael.android.sdkmapasgoogle.R;
 import br.natanael.android.sdkmapasgoogle.helper.Permissoes;
@@ -115,6 +121,27 @@ public class LocalizacaoDoUsuarioActivity extends FragmentActivity implements On
 
                 );
 
+                Geocoder geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
+
+                try {
+                    List<Address> lista =  geocoder.getFromLocation(latitude, longitude, 1);
+
+                    if(lista != null)
+                    {
+                        if(lista.size() > 0){
+                            Address endereco = lista.get(0);
+                            Log.d("local", "onLocationChanged: " + endereco.toString());
+
+                        }
+                    }
+
+
+
+
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override
