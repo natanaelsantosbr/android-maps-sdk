@@ -30,8 +30,8 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".CirculosActivity2"
-            android:label="Circulos">
+            android:name=".PoligonoActivity"
+            android:label="@string/title_activity_poligono">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,9 +40,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MapsActivity"
-            android:label="@string/title_activity_maps">
+            android:name=".CirculosActivity2"
+            android:label="Circulos">
         </activity>
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps"></activity>
         <activity android:name=".MainActivity" />
     </application>
 
